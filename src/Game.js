@@ -1,5 +1,6 @@
 BasicGame.Game = function (game) {  
     this.word2 = null;
+    this.wordSprite = null;
     this.wordList;
     this.entry = null;
 };
@@ -7,50 +8,92 @@ BasicGame.Game = function (game) {
 BasicGame.Game.prototype = {
 
     create: function () {
-        this.wordList = ['car', 'steve', 'ban', 'oats'];
-        this.entry = this.add.text(this.world.centerX, 700, '', {
-            font: "32px Arial",
-            fill: "#ff0044",
-            align: "center"
-        });
+        this.wordList = ['St. Peter', 'car', 'steve', 'ban', 'oats', 'brian', 'chris', 'mike', '1234', '#wordFury'];
+        var textInputCanvas = document.getElementById('canvas');
+        textInputCanvas.style.top = 700 + 'px';
+        textInputCanvas.style.left = this.world.centerX - textInputCanvas.width/2 + 'px';
 
-        this.word2 = this.add.text(this.world.centerX, this.world.topY, 'apple', {
+        this.entry = new CanvasInput({
+            canvas: document.getElementById('canvas'),
+            //canvas: document.getElementById(this.game.canvas.id);
+            fontSize: 18,
+            fontFamily: 'Arial',
+            fontColor: '#212121',
+            fontWeight: 'bold',
+            width: 300,
+            padding: 8,
+            borderWidth: 1,
+            borderColor: '#000',
+            borderRadius: 3,
+            boxShadow: '1px 1px 0px #fff',
+            innerShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
+            placeHolder: 'Enter message here...'
+        });
+        this.entry.focus();
+
+        var that = this;
+        this.entry.onsubmit(
+            function() {
+                that.wordSubmit();
+            }
+        );
+        
+
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
+        //this.word2 = this.game.add.bitmapText(this.world.centerX, this.world.topY, 'stack', 'apple', 64);        
+
+        this.word2 = this.game.add.text(0, 0, this.rnd.pick(this.wordList), {
             font: "32px Arial",
             fill: "#ff0044",
             align: "center"
         });
 
         this.word2.anchor.setTo(0.5, 0.5);
+        //this.word2.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
+        
+        this.wordSprite = this.add.sprite(this.world.centerX, this.world.topY, null);
+        this.wordSprite.addChild(this.word2);
 
-        this.input.keyboard.addCallbacks(this, null, this.keyPress, null);
+        this.game.physics.enable(this.wordSprite);
+        this.wordSprite.body.velocity.setTo(0, 100);
     },
 
-    keyPress: function (char) {
-        if(char.key == "Backspace"){
-            this.entry.setText('')
-            return;
-        }
-        if(char.key == "Enter"){
-            this.checkValue();
-            this.entry.setText('');
-            return;
-        }
-        this.entry.setText(this.entry.text + char.key);
+    wordSubmit: function () {
+        this.checkValue();
     },
 
     checkValue: function() {
-        if(this.entry.text.trim() == this.word2.text.trim()) {
-            this.word2.destroy();
-            this.word2 = this.add.text(this.rnd.realInRange(0, this.world.width-100), this.world.topY, this.rnd.pick(this.wordList), {
+        var word = this.entry.value();
+
+        this.entry.value("");
+        if(word.trim() == this.word2.text.trim()) {
+            this.removeWord(word);
+            this.wordSprite.destroy();
+            this.word2 = this.game.add.text(0, 0, this.rnd.pick(this.wordList), {
             font: "32px Arial",
             fill: "#ff0044",
             align: "center"
         });
+        this.word2.anchor.setTo(0.5);        
+        this.wordSprite = this.add.sprite(this.rnd.realInRange(100, this.world.width-100), this.world.topY, null);
+        this.wordSprite.addChild(this.word2);
+
+        this.game.physics.enable(this.wordSprite);
+        this.wordSprite.anchor.setTo(0.5, 0.5);
+        this.wordSprite.body.velocity.setTo(0, 100);
+        this.wordSprite.body.angularVelocity = 50;
+        }
+    },
+
+    removeWord: function(word) {
+        var index = this.wordList.indexOf(word);
+        if(index > -1) {
+            this.wordList.splice(index, 1);
         }
     },
 
     update: function () {
-        this.word2.y += 1;
         
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
     },

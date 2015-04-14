@@ -1,6 +1,6 @@
 
 BasicGame.MainMenu = function (game) {
-
+	this.titleText = null;
 	this.music = null;
 	this.playButton = null;
 
@@ -14,13 +14,21 @@ BasicGame.MainMenu.prototype = {
 		//	Here all we're doing is playing some music and adding a picture and button
 		//	Naturally I expect you to do something significantly better :)
 
-		this.background = this.add.sprite(0, 0, 'preloaderBackground');
-		this.music = this.add.audio('titleMusic', 1, true);
+		this.background = this.game.add.sprite(0, 0, 'preloaderBackground');
+		this.background = this.game.add.tileSprite(0, 0, 1046, 768, 'preloaderBackground');
+		this.background.autoScroll(-200, 0);
+		
+		this.titleText = this.game.add.bitmapText(this.game.width/2, 150, 'stack', 'WordFury', 100);
+		this.titleText.updateText();
+		this.titleText.x = this.game.world.centerX - (this.titleText.textWidth * 0.5);
+		
+		this.music = this.game.add.audio('titleMusic', 1, true);
 		this.music.play();
 
 		//this.add.sprite(0, 0, 'titlepage');
 
-		this.playButton = this.add.button(400, 600, 'playButton', this.startGame, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		this.playButton = this.game.add.button(this.game.width/2, 600, 'playButton', this.startGame, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		this.playButton.anchor.setTo(0.5, 0.5);
 
 	},
 
