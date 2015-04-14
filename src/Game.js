@@ -3,6 +3,8 @@ BasicGame.Game = function (game) {
     this.wordSprite = null;
     this.wordList;
     this.entry = null;
+    this.scoreText = null;
+    this.score = 0;
 };
 
 BasicGame.Game.prototype = {
@@ -12,7 +14,12 @@ BasicGame.Game.prototype = {
         var textInputCanvas = document.getElementById('canvas');
         textInputCanvas.style.top = 700 + 'px';
         textInputCanvas.style.left = this.world.centerX - textInputCanvas.width/2 + 'px';
-
+        this.scoreText = this.game.add.text(this.world.leftX, 700, 'Score: ' + this.score, {
+            font: "32px Arial",
+            fill: "#ff0044",
+            align: "center"
+        });
+        //this.scoreText.anchor.setTo(0.5, 0.5);
         this.entry = new CanvasInput({
             canvas: document.getElementById('canvas'),
             //canvas: document.getElementById(this.game.canvas.id);
@@ -69,6 +76,7 @@ BasicGame.Game.prototype = {
         this.entry.value("");
         if(word.trim() == this.word2.text.trim()) {
             this.removeWord(word);
+            this.updateScore();
             this.wordSprite.destroy();
             this.word2 = this.game.add.text(0, 0, this.rnd.pick(this.wordList), {
             font: "32px Arial",
@@ -91,6 +99,11 @@ BasicGame.Game.prototype = {
         if(index > -1) {
             this.wordList.splice(index, 1);
         }
+    },
+
+    updateScore: function() {
+        this.score += 10;
+        this.scoreText.text = 'Score: ' + this.score;
     },
 
     update: function () {
