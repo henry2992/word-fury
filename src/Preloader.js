@@ -29,6 +29,9 @@ BasicGame.Preloader.prototype = {
 		this.load.image('playButton', 'images/playbutton.png');
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
+		this.load.json('wordList','./WordList/easyWords.json');
+
+
 		//	+ lots of other required assets here
 
 	},

@@ -10,7 +10,7 @@ BasicGame.Game = function (game) {
 BasicGame.Game.prototype = {
 
     create: function () {
-        this.wordList = ['St. Peter', 'car', 'steve', 'ban', 'oats', 'brian', 'chris', 'mike', '1234', '#wordFury'];
+        this.wordList = this.cache.getJSON('wordList');
         var textInputCanvas = document.getElementById('canvas');
         textInputCanvas.style.top = 700 + 'px';
         textInputCanvas.style.left = this.world.centerX - textInputCanvas.width/2 + 'px';
