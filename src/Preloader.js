@@ -3,7 +3,7 @@ BasicGame.Preloader = function (game) {
 
 	this.background = null;
 	this.preloadBar = null;
-
+	this.preloadText = null;
 	this.ready = false;
 
 };
@@ -16,6 +16,8 @@ BasicGame.Preloader.prototype = {
 		//	A nice sparkly background and a loading progress bar
 		this.background = this.add.sprite(0, 0, 'preloaderBackground');
 		this.preloadBar = this.add.sprite(this.game.width/2, this.game.height/2, 'preloaderBar');
+		this.preloadText = this.add.sprite(this.game.width/2.4, this.game.height/2.5, 'preloaderText');
+
 		this.preloadBar.anchor.setTo(0.5, 0.5);
 
 		//	This sets the preloadBar sprite as a loader sprite.

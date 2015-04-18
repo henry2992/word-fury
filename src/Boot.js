@@ -37,6 +37,7 @@ BasicGame.Boot.prototype = {
         this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
         this.load.image('preloaderBackground', 'images/space.png');
         this.load.image('preloaderBar', 'images/preload.png');
+        this.load.image('preloaderText', 'images/loadText.png');
 
     },
 
