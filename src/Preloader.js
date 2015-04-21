@@ -1,67 +1,39 @@
-
-BasicGame.Preloader = function (game) {
-
-	this.background = null;
-	this.preloadBar = null;
-	this.preloadText = null;
-	this.ready = false;
-
+WordFury.Preloader = function(game){
+	WordFury.GAME_WIDTH = 640;
+	WordFury.GAME_HEIGHT = 960;
 };
-
-BasicGame.Preloader.prototype = {
-
-	preload: function () {
-
-		//	These are the assets we loaded in Boot.js
-		//	A nice sparkly background and a loading progress bar
-		this.background = this.add.sprite(0, 0, 'preloaderBackground');
-		this.preloadBar = this.add.sprite(this.game.width/2, this.game.height/2, 'preloaderBar');
-		this.preloadText = this.add.sprite(this.game.width/2.4, this.game.height/2.5, 'preloaderText');
-
+WordFury.Preloader.prototype = {
+	preload: function(){
+		// create a boolean to prevent us from going to the main menu too soon
+		this.ready = false;
+		// set background and add a loading bar and text
+		this.stage.backgroundColor = '#7F8C8D';
+		this.preloadText = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2.5, 'preloaderText');
+		this.preloadText.anchor.setTo(0.5, 0.5);
+		this.preloadBar = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2, 'preloaderBar');
 		this.preloadBar.anchor.setTo(0.5, 0.5);
-
-		//	This sets the preloadBar sprite as a loader sprite.
-		//	What that does is automatically crop the sprite from 0 to full-width
-		//	as the files below are loaded in.
-		this.load.setPreloadSprite(this.preloadBar);
-
-		//	Here we load the rest of the assets our game needs.
-		//	As this is just a Project Template I've not provided these assets, swap them for your own.
-		//this.load.image('titlepage', 'images/title.jpg');
-		this.load.image('playButton', 'images/playbutton.png');
+	    this.load.setPreloadSprite(this.preloadBar);
+		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
+		// load images
+		this.load.image('playButton', 'images/playbutton.png');
+		this.load.image('muteButton', 'images/muteButton.png');
+		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
-		this.load.json('wordList','./wordList/easyWords.json');
-
-
-		//	+ lots of other required assets here
-
+		// load json files
+		this.load.json('wordList','wordList/easyWords.json');
 	},
-
-	create: function () {
-
-		//	Once the load has finished we disable the crop because we're going to sit in the update loop for a short while as the music decodes
+	create: function(){
+		// disable the crop so it doesn't keep going as the music decodes
 		this.preloadBar.cropEnabled = false;
-
 	},
-
-	update: function () {
-
-		//	You don't actually need to do this, but I find it gives a much smoother game experience.
-		//	Basically it will wait for our audio file to be decoded before proceeding to the MainMenu.
-		//	You can jump right into the menu if you want and still play the music, but you'll have a few
-		//	seconds of delay while the mp3 decodes - so if you need your music to be in-sync with your menu
-		//	it's best to wait for it to decode here first, then carry on.
-		
-		//	If you don't have any music in your game then put the game.state.start line into the create function and delete
-		//	the update function completely.
-		
+	update: function(){
+		// wait on this screen until the music is ready to go
 		if (this.cache.isSoundDecoded('titleMusic') && this.ready == false)
 		{
 			this.ready = true;
+			// transition to the MainMenu state
 			this.state.start('MainMenu');
 		}
-
 	}
-
 };
