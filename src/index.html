@@ -11,13 +11,14 @@
 	<script src="MainMenu.js"></script>
 	<script src="Game.js"></script>
 </head>
-<canvas id="canvas" width="350", height="100" style="position:absolute; top:0px; left:0px; z-index:1" text-align:center;></canvas>
 <body>
+<canvas id="canvas" width="350", height="100" style="position:absolute; top:0px; left:0px; z-index:1" text-align:center;></canvas>
 <script>
 (function() {
 	// starting up Phaser Framework
 	var game = new Phaser.Game(640, 960, Phaser.AUTO, 'game');
 	// adding states to game
+
 	game.state.add('Boot', WordFury.Boot);
 	game.state.add('Preloader', WordFury.Preloader);
 	game.state.add('MainMenu', WordFury.MainMenu);

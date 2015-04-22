@@ -22,15 +22,20 @@ WordFury.Game.prototype = {
         WordFury._wordList = this.cache.getJSON('wordList');
         // create the textBox
         var textInputCanvas = document.getElementById('canvas');
-        textInputCanvas.style.top = 800 + 'px';
-        textInputCanvas.style.left = WordFury.GAME_WIDTH + 'px';
+        // textInputCanvas.style.top = this.world.botY + 100 + 'px';
+        // textInputCanvas.style.left = this.stage.offset.x * 1.5 - 150 + 'px';
+        textInputCanvas.style.top = 90 + "%";
+        textInputCanvas.style.left = 40 + "%";
+        textInputCanvas.style.width = 40 + "%";
+        textInputCanvas.style.height = 15 + "%";
+        
         this._entry = new CanvasInput({
             canvas: document.getElementById('canvas'),
             fontSize: 18,
             fontFamily: 'Arial',
             fontColor: '#212121',
             fontWeight: 'bold',
-            width: 342,
+            width: this.width / window.innerWidth,
             padding: 8,
             borderWidth: 1,
             borderColor: '#000',
