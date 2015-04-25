@@ -1,5 +1,5 @@
 /**
- This file is part of Foobar.
+ This file is part of WordFury.
 
     WordFury is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with WordFury.  If not, see <http://www.gnu.org/licenses/>.
     */
 WordFury.Game = function(game){
     // define variables just for WordFury.Game   
@@ -46,7 +46,7 @@ WordFury.Game.prototype = {
         textInputCanvas.style.height = 15 + "%";
         
         /**
- This file is part of Foobar.
+ This file is part of WordFury.
 
     WordFury is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -59,7 +59,7 @@ WordFury.Game.prototype = {
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with WordFury.  If not, see <http://www.gnu.org/licenses/>.
     */
         this._entry = new CanvasInput({
             canvas: document.getElementById('canvas'),
@@ -111,7 +111,7 @@ WordFury.Game.prototype = {
         });
     },
     /**
- This file is part of Foobar.
+ This file is part of WordFury.
 
     WordFury is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -124,7 +124,7 @@ WordFury.Game.prototype = {
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with WordFury.  If not, see <http://www.gnu.org/licenses/>.
     */
     removeWord: function(word){
         var index = WordFury._wordList.indexOf(word);
@@ -155,7 +155,7 @@ WordFury.Game.prototype = {
     }
 };
 /**
- This file is part of Foobar.
+ This file is part of WordFury.
 
     WordFury is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -168,7 +168,7 @@ WordFury.Game.prototype = {
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+    along with WordFury.  If not, see <http://www.gnu.org/licenses/>.
     */
 WordFury.item = {
     spawnWord: function(game){
