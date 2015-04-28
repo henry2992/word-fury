@@ -24,6 +24,7 @@ WordFury.Game = function(game){
     WordFury._score = 0;
     WordFury._wordList = null;
     WordFury._fontStyle = null;
+    WordFury._wordCount = 0;
 };
 WordFury.Game.prototype = {
     create: function(){
@@ -89,6 +90,7 @@ WordFury.Game.prototype = {
         this._wordGroup.forEach(function(wordSprite){
             var word = wordSprite.getChildAt(0);
             if(enteredWord.trim() == word.text.trim()) {
+                WordFury._wordCount ++;
                 game.removeWord(word.text)
                 game.updateScore();
                 wordSprite.destroy(true);
@@ -110,7 +112,7 @@ WordFury.Game.prototype = {
         // update the timer
         this._spawnWordTimer += this.time.elapsed;
         // check to see if we should spawn another word
-        if(this._spawnWordTimer > 1000) {
+        if(this._spawnWordTimer > (2000-(WordFury._wordCount*10))) {
             // reset the timer
             this._spawnWordTimer = 0;
             // spawn a word
@@ -134,7 +136,7 @@ WordFury.item = {
 
         game.physics.enable(wordSprite);
         wordSprite.anchor.setTo(0.5, 0.5);
-        wordSprite.body.velocity.setTo(0, 100);
+        wordSprite.body.velocity.setTo(0, 20+WordFury._wordCount*2);
         var rand = game.rnd.realInRange(0, 100);
         if(rand > 50) {
             wordSprite.body.angularVelocity = 50;
