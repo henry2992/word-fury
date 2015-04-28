@@ -30,15 +30,17 @@ WordFury.MainMenu.prototype = {
 		titleText.x = WordFury.GAME_WIDTH/2 - (titleText.textWidth * 0.5);
 		// add and play the music
 		WordFury.MUSIC = this.add.audio('titleMusic', 1, true);
+		WordFury.MUSIC.loop = true;
 		WordFury.MUSIC.play();
 		// add the play button
 		var playButton = this.add.button(WordFury.GAME_WIDTH/2, 600, 'playButton', this.startGame, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		playButton.anchor.setTo(0.5, 0.5);
-		var muteButton = this.add.button(WordFury.GAME_WIDTH/2, 700, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
-		muteButton.anchor.setTo(0.5, 0.5);
+		//var muteButton = this.add.button(WordFury.GAME_WIDTH/2, 700, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		//muteButton.anchor.setTo(0.5, 0.5);
 	},
 	startGame: function(){
 		// transition to the Game state 
+		WordFury.MUSIC.stop();
 		this.state.start('Game');
 	},
 	muteMusic: function(){

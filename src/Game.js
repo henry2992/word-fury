@@ -32,6 +32,9 @@ WordFury.Game.prototype = {
         // start the physics engine
         this.physics.startSystem(Phaser.Physics.ARCADE);
         //this.physics.arcade.gravity.y = 1;
+        WordFury.MUSIC.play('', 0, 1, true);
+
+        WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
         // set background
         var background = this.add.sprite(0, 0, 'preloaderBackground');
         background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
@@ -98,7 +101,11 @@ WordFury.Game.prototype = {
             }
         });
     },
+    playLevelMusic:function(){
+            WordFury.MUSIC.play('', 0, 1, true);
 
+
+        },
     
     updateScore: function() {
         WordFury._score += 10;
@@ -108,6 +115,7 @@ WordFury.Game.prototype = {
     update: function(){
         // update the timer
         this._spawnWordTimer += this.time.elapsed;
+      
         // check to see if we should spawn another word
         if(this._spawnWordTimer > (2000-(WordFury._wordCount*10))) {
             // reset the timer
