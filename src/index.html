@@ -36,14 +36,12 @@
 	// starting up Phaser Framework
 	var game = new Phaser.Game(640, 960, Phaser.AUTO, 'game');
 	// adding states to game
-
 	game.state.add('Boot', WordFury.Boot);
 	game.state.add('Preloader', WordFury.Preloader);
 	game.state.add('MainMenu', WordFury.MainMenu);
 	game.state.add('Game', WordFury.Game);
-		game.state.add('GameOver', WordFury.GameOver);
-		game.state.add('GameWin',WordFury.GameWin);
-
+	game.state.add('GameOver', WordFury.GameOver);
+	game.state.add('GameWin',WordFury.GameWin);
 	//	transition to Boot state
 	game.state.start('Boot');
 })();

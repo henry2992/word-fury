@@ -16,7 +16,6 @@
     */
 WordFury.GameWin = function(game){
     // define variables just for WordFury.Game   
-    this._score= WordFury._score;
     this._spawnWordTimer = 0;
 };
 WordFury.GameWin.prototype = {
@@ -31,28 +30,23 @@ WordFury.GameWin.prototype = {
         
         // set font style
         var _fontStyle = { font: "32px Arial", fill: "#ff0044", align: "center" };
-        
-        // initialize score text with value 0
-        
-       
-          
-         var _scoreText = this.add.text(this.world.leftX, 700, "You finished with "+this._score+" points.", _fontStyle);  
-         var _scoreText = this.add.text(this.world.leftX, 750, "You win the internet!", _fontStyle);    
-         var _scoreText = this.add.text(this.world.leftX, 800, "Refresh your browser to play again", _fontStyle);        
-        
+
+         
+        this.add.text(this.world.leftX, 700, "You finished with "+ WordFury._score+" points.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 750, "You win the internet!", WordFury._fontStyle);    
+        this.add.text(this.world.leftX, 800, "Refresh your browser to play again", WordFury._fontStyle);        
     },
+
      update: function(){
         // update the timer
         this._spawnWordTimer += this.time.elapsed;
         // check to see if we should spawn another word
-        if(this._spawnWordTimer > (1000)) {
+        if(this._spawnWordTimer > (600)) {
             // reset the timer
             this._spawnWordTimer = 0;
             // spawn a word
             WordFury.item3.spawnWord(this);
-        }
-
-        
+        }    
      }   
 };
     WordFury.item3 = {
@@ -72,6 +66,5 @@ WordFury.GameWin.prototype = {
         else {
             wordSprite.body.angularVelocity = -50;
         }
-        wordSprite.checkWorldBounds = true;
     }
 };

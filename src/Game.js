@@ -25,6 +25,7 @@ WordFury.Game = function(game){
     WordFury._wordList = null;
     WordFury._fontStyle = null;
     WordFury._wordCount = 0;
+    WordFury._spawnedWordCount = 0;
 };
 WordFury.Game.prototype = {
     create: function(){
@@ -91,20 +92,11 @@ WordFury.Game.prototype = {
             var word = wordSprite.getChildAt(0);
             if(enteredWord.trim() == word.text.trim()) {
                 WordFury._wordCount ++;
-<<<<<<< HEAD
-=======
-                game.removeWord(word.text)
->>>>>>> b942ca9c144c5c74385d0c1ec95b0edecb1191e5
                 game.updateScore();
                 wordSprite.kill();
-
+                WordFury._spawnedWordCount += 1;
             }
-            
         });
-        if (WordFury._wordCount >=280){//after 280 of the 300 words have spawned call win game
-            this.state.states['GameWin']._score=WordFury._score;
-                this.state.start('GameWin');
-            }
     },
 
     
@@ -122,6 +114,11 @@ WordFury.Game.prototype = {
             this._spawnWordTimer = 0;
             // spawn a word
             WordFury.item.spawnWord(this);
+        }
+
+        if (WordFury._spawnedWordCount == 300){//after 280 of the 300 words have spawned call win game
+            this.state.states['GameWin']._score=WordFury._score;
+                this.state.start('GameWin');
         }
 
         if (WordFury._score <0){
@@ -146,11 +143,8 @@ WordFury.item = {
         wordSprite.addChild(word);
         game.physics.enable(wordSprite);
         wordSprite.anchor.setTo(0.5, 0.5);
-<<<<<<< HEAD
-        wordSprite.body.velocity.setTo(0, 100+WordFury._wordCount*2);
-=======
+        //wordSprite.body.velocity.setTo(0, 100+WordFury._wordCount*2);
         wordSprite.body.velocity.setTo(0, 20+WordFury._wordCount*2);
->>>>>>> b942ca9c144c5c74385d0c1ec95b0edecb1191e5
         var rand = game.rnd.realInRange(0, 100);
         if(rand > 50) {
             wordSprite.body.angularVelocity = 50;
@@ -168,9 +162,10 @@ WordFury.item = {
             WordFury._wordList.splice(index, 1);
         }
     },
-    loseLife: function(word,game){
+    loseLife: function(word){
         WordFury._score -=10;
         word.kill();
+        WordFury._spawnedWordCount += 1;
         WordFury._scoreText.text = 'Score: ' + WordFury._score;
         
     }
