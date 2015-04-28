@@ -91,6 +91,10 @@ WordFury.Game.prototype = {
             var word = wordSprite.getChildAt(0);
             if(enteredWord.trim() == word.text.trim()) {
                 WordFury._wordCount ++;
+<<<<<<< HEAD
+=======
+                game.removeWord(word.text)
+>>>>>>> b942ca9c144c5c74385d0c1ec95b0edecb1191e5
                 game.updateScore();
                 wordSprite.kill();
 
@@ -142,7 +146,11 @@ WordFury.item = {
         wordSprite.addChild(word);
         game.physics.enable(wordSprite);
         wordSprite.anchor.setTo(0.5, 0.5);
+<<<<<<< HEAD
         wordSprite.body.velocity.setTo(0, 100+WordFury._wordCount*2);
+=======
+        wordSprite.body.velocity.setTo(0, 20+WordFury._wordCount*2);
+>>>>>>> b942ca9c144c5c74385d0c1ec95b0edecb1191e5
         var rand = game.rnd.realInRange(0, 100);
         if(rand > 50) {
             wordSprite.body.angularVelocity = 50;
