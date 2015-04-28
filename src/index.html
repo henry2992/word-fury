@@ -26,6 +26,8 @@
 	<script src="Preloader.js"></script>
 	<script src="MainMenu.js"></script>
 	<script src="Game.js"></script>
+	<script src="GameOver.js"></script>
+	<script src="GameWin.js"></script>
 </head>
 <body>
 <canvas id="canvas" width="350", height="100" style="position:absolute; top:0px; left:0px; z-index:1" text-align:center;></canvas>
@@ -39,6 +41,9 @@
 	game.state.add('Preloader', WordFury.Preloader);
 	game.state.add('MainMenu', WordFury.MainMenu);
 	game.state.add('Game', WordFury.Game);
+		game.state.add('GameOver', WordFury.GameOver);
+		game.state.add('GameWin',WordFury.GameWin);
+
 	//	transition to Boot state
 	game.state.start('Boot');
 })();

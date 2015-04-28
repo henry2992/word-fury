@@ -1,0 +1,23 @@
+Wordfury can be played live at wordfury.org or cloned to a local repository at https://github.com/mgiovenco/word-fury.
+
+To play the game from wordfury.org, click on the "Play" link on the top navigation bar.
+
+This will take you to a loading screen which will then turn into the main page.
+
+You will know you have reached the main page when you see a screen that says "WordFury" and has buttons for play and mute.
+
+If you want to play the game without sound, click on the mute button, as it will not be available on later screens.
+
+To start the game, click on the play button.
+
+Once you start the game, you will see a text box, a score displayed, and words will start falling from the top.
+
+The goal is to type each of the words in the text box before they reach the bottom of the screen.
+
+If you do not see a blinking cursor inside the text box, you will need to click in the text box before you will be able to type.
+
+You will score points for each word you type properly (hit the enter key to submit a typed word).
+
+If a word hits the bottom, you will lose points.
+
+The object of the game is to get the highest score when the word bank at each level runs out.

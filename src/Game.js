@@ -24,6 +24,7 @@ WordFury.Game = function(game){
     WordFury._score = 0;
     WordFury._wordList = null;
     WordFury._fontStyle = null;
+    WordFury._wordCount = 0;
 };
 WordFury.Game.prototype = {
     create: function(){
@@ -86,35 +87,42 @@ WordFury.Game.prototype = {
         var enteredWord = this._entry.value();
         this._entry.value("");
 
-        this._wordGroup.forEach(function(wordSprite){
+        this._wordGroup.forEachAlive(function(wordSprite){
             var word = wordSprite.getChildAt(0);
             if(enteredWord.trim() == word.text.trim()) {
-                game.removeWord(word.text)
+                WordFury._wordCount ++;
                 game.updateScore();
-                wordSprite.destroy(true);
+                wordSprite.kill();
+
             }
+            
         });
+        if (WordFury._wordCount >=280){//after 280 of the 300 words have spawned call win game
+            this.state.states['GameWin']._score=WordFury._score;
+                this.state.start('GameWin');
+            }
     },
 
-    removeWord: function(word){
-        var index = WordFury._wordList.indexOf(word);
-        if(index > -1) {
-            WordFury._wordList.splice(index, 1);
-        }
-    },
+    
     updateScore: function() {
         WordFury._score += 10;
         WordFury._scoreText.text = 'Score: ' + WordFury._score;
+
     },
     update: function(){
         // update the timer
         this._spawnWordTimer += this.time.elapsed;
         // check to see if we should spawn another word
-        if(this._spawnWordTimer > 1000) {
+        if(this._spawnWordTimer > (2000-(WordFury._wordCount*10))) {
             // reset the timer
             this._spawnWordTimer = 0;
             // spawn a word
             WordFury.item.spawnWord(this);
+        }
+
+        if (WordFury._score <0){
+            this.state.states['GameOver']._score=WordFury._score;
+            this.state.start('GameOver' );
         }
     },
     quitGame: function (pointer) {
@@ -128,13 +136,13 @@ WordFury.Game.prototype = {
 WordFury.item = {
     spawnWord: function(game){
         var word = game.add.text(0, 0, game.rnd.pick(WordFury._wordList), WordFury._fontStyle);
+        this.removeWord(word.text);
         word.anchor.setTo(0.5);        
         var wordSprite = game.add.sprite(game.rnd.realInRange(100, WordFury.GAME_WIDTH-100), game.world.topY, null);
         wordSprite.addChild(word);
-
         game.physics.enable(wordSprite);
         wordSprite.anchor.setTo(0.5, 0.5);
-        wordSprite.body.velocity.setTo(0, 100);
+        wordSprite.body.velocity.setTo(0, 100+WordFury._wordCount*2);
         var rand = game.rnd.realInRange(0, 100);
         if(rand > 50) {
             wordSprite.body.angularVelocity = 50;
@@ -143,10 +151,23 @@ WordFury.item = {
             wordSprite.body.angularVelocity = -50;
         }
         wordSprite.checkWorldBounds = true;
-        //wordSprite.events.onOutOfBounds.add(this.loseLife, this);
+        wordSprite.events.onOutOfBounds.add(this.loseLife,this);
         game._wordGroup.add(wordSprite);
     },
+    removeWord: function(word){
+        var index = WordFury._wordList.indexOf(word);
+        if(index > -1) {
+            WordFury._wordList.splice(index, 1);
+        }
+    },
+    loseLife: function(word,game){
+        WordFury._score -=10;
+        word.kill();
+        WordFury._scoreText.text = 'Score: ' + WordFury._score;
+        
+    }
 };
+
  /**
  This file is part of WordFury.
 
