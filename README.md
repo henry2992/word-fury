@@ -1,6 +1,7 @@
 # word-fury
 Word Fury - Open Source Game
 
+
 Release Information (Current release - version 1.0):
 
 0.1 - First minor release. New functionality includes falling words and scoring system.  Limited word set included.
@@ -8,6 +9,7 @@ Release Information (Current release - version 1.0):
 0.2 - Second minor releae. New functionality includes background image, music, spinning words, and greatly expanded word set.
 
 1.0 - First major release. New functionality includes additional backgrounds, music themes, sound effects, and end game.
+
 
 WordFury is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
