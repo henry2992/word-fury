@@ -5,12 +5,15 @@ Word Fury - Open Source Game
 Release Information (Current release - version 1.0):
 
 Date 04.08.15
+
 0.1 - First minor release. New functionality includes falling words and scoring system.  Limited word set included.
 
 Date 04.15.15
+
 0.2 - Second minor releae. New functionality includes background image, music, spinning words, and greatly expanded word set.
 
 Date 04.28.15
+
 1.0 - First major release. New functionality includes additional backgrounds, music themes, sound effects, and end game.
 
 
