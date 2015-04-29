@@ -36,9 +36,18 @@ WordFury.Game.prototype = {
 
         WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
         // set background
-        var background = this.add.sprite(0, 0, 'preloaderBackground');
-        background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
-        background.autoScroll(-200, 0);
+        var background;
+        if (WordFury._background==1){
+
+            background= this.add.sprite(0, 0, 'preloaderBackground');     
+           background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
+                   background.autoScroll(-200, 0);
+
+
+        } else if (WordFury._background==2){ 
+            background= this.add.sprite(0,0,'wildwestBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'wildwestBackground');
+        }
         // load the wordList
         WordFury._wordList = this.cache.getJSON('wordList');
         // create the textBox
@@ -94,6 +103,7 @@ WordFury.Game.prototype = {
         this._wordGroup.forEachAlive(function(wordSprite){
             var word = wordSprite.getChildAt(0);
             if(enteredWord.trim() == word.text.trim()) {
+                WordFury.Gunshot.play();
                 WordFury._wordCount ++;
                 game.updateScore();
                 wordSprite.kill();
@@ -124,7 +134,7 @@ WordFury.Game.prototype = {
             WordFury.item.spawnWord(this);
         }
 
-        if (WordFury._spawnedWordCount == 300){//after 280 of the 300 words have spawned call win game
+        if (WordFury._spawnedWordCount == 280){//after 280 of the 300 words have spawned call win game
             this.state.states['GameWin']._score=WordFury._score;
                 this.state.start('GameWin');
         }

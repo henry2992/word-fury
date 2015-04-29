@@ -24,10 +24,18 @@ WordFury.GameOver.prototype = {
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
         // set background
-        var background = this.add.sprite(0, 0, 'preloaderBackground');
-        background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
-        background.autoScroll(-200, 0);
-        
+        var background;
+        if (WordFury._background==1){
+
+            background= this.add.sprite(0, 0, 'preloaderBackground');     
+           background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
+                   background.autoScroll(-200, 0);
+
+
+        } else if (WordFury._background==2){ 
+            background= this.add.sprite(0,0,'wildwestBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'wildwestBackground');
+        }
         // set font style
         var _fontStyle = { font: "32px Arial", fill: "#ff0044", align: "center" };
         

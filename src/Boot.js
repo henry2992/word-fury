@@ -21,8 +21,10 @@ WordFury.Boot.prototype = {
         // loading resources needed for preloader page
         this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
         this.load.image('preloaderBackground', 'images/space.png');
+        this.load.image('wildwestBackground','images/wildwest.png');
         this.load.image('preloaderBar', 'images/preload.png');
         this.load.image('preloaderText', 'images/loadText.png');
+        this.load.image('monitorBackground','images/monitor.png');
     },
     create: function(){
         // setting the scale options

@@ -31,9 +31,13 @@ WordFury.Preloader.prototype = {
 	    this.load.setPreloadSprite(this.preloadBar);
 		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
+		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
+		this.load.audio('gunshot',['sounds/gunshot.ogg','sound/gunshot.mp3']);
+		this.load.audio('lazer',['sounds/lazer.ogg','sound/lazer.mp3']);
 		// load images
-		this.load.image('playButton', 'images/playbutton.png');
-		this.load.image('muteButton', 'images/muteButton.png');
+		this.load.image('westButton', 'images/westbutton.png');
+		this.load.image('spaceButton', 'images/spacebutton.png');
+		this.load.image('muteButton','images/mutebutton.png');
 		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 		// load json files
