@@ -15,6 +15,7 @@
     along with WordFury.  If not, see <http://www.gnu.org/licenses/>.
     */
 var WordFury = {};
+
 WordFury.Boot = function(game){};
 WordFury.Boot.prototype = {
     preload: function(){
