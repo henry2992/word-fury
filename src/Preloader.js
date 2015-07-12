@@ -26,9 +26,14 @@ WordFury.Preloader.prototype = {
 		this.stage.backgroundColor = '#7F8C8D';
 		this.preloadText = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2.5, 'preloaderText');
 		this.preloadText.anchor.setTo(0.5, 0.5);
-		this.preloadBar = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2, 'preloaderBar');
-		this.preloadBar.anchor.setTo(0.5, 0.5);
-	    this.load.setPreloadSprite(this.preloadBar);
+		//this.preloadBar = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2, 'preloaderBar');
+		//this.preloadBar.anchor.setTo(0.5, 0.5);
+	    //this.load.setPreloadSprite(this.preloadBar);
+	    this.add.text(this.world.leftX, 450, "Welcome to WordFury!", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 500, "This is a fast paced typing game.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 550, "Words fall from the top of the screen.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 600, "You score points by successfully typing the word", WordFury._fontStyle);
+		this.add.text(this.world.leftX, 650, "and lose points for words that you do not type in time.", WordFury._fontStyle);   
 		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
