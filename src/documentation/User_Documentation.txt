@@ -1,0 +1,23 @@
+Wordfury can be played live at wordfury.org or cloned to a local repository at https://github.com/mgiovenco/word-fury.
+
+To play the game from wordfury.org, click on the "Play" link on the top navigation bar.
+
+This will take you to a loading screen which will then turn into the main page.
+
+You will know you have reached the main page when you see a screen that says "WordFury" and has buttons for play and mute.
+
+If you want to play the game without sound, click on the mute button, as it will not be available on later screens.
+
+To start the game, select the theme you wish to play.
+
+Once you start the game words will start falling from the top of the screen. 
+
+Type the falling words into the text box at the bottom of the screen to earn points. You will receive 10 points for each correct word.
+
+The goal is to type each of the words in the text box before they reach the bottom of the screen. If a word reaches the bottom, you lose 10 points.
+
+If you do not see a blinking cursor inside the text box, you will need to click in the text box before you will be able to type.
+
+You will score points for each word you type properly. Press the enter key to submit a typed word.
+
+You win the game when you score 280 points. You lose the game if the score goes below zero.
