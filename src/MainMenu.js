@@ -44,7 +44,7 @@ WordFury.MainMenu.prototype = {
 		playButton.anchor.setTo(0.5, 0.5);
 		var playButton = this.add.button(WordFury.GAME_WIDTH/3*2, 600, 'westButton', this.startGame2, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		playButton.anchor.setTo(0.5, 0.5);
-		var muteButton = this.add.button(WordFury.GAME_WIDTH/2, 700, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 50, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		muteButton.anchor.setTo(0.5, 0.5);
 	},
 	startGame: function(){
@@ -55,9 +55,10 @@ WordFury.MainMenu.prototype = {
 	},
 	startGame2: function(){
 		WordFury.MUSIC.stop();
-		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
-		WordFury.Gunshot = this.add.audio('gunshot',1,false);
-
+		if (WordFury.MUSIC.mute==false) {
+			WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+			WordFury.Gunshot = this.add.audio('gunshot',1,false);
+		}
 		WordFury._background = 2;
 		this.state.start('Game');
 	},

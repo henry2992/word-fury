@@ -32,9 +32,12 @@ WordFury.Game.prototype = {
         // start the physics engine
         this.physics.startSystem(Phaser.Physics.ARCADE);
         //this.physics.arcade.gravity.y = 1;
-        WordFury.MUSIC.play('', 0, 1, true);
+        
+        if (WordFury.MUSIC.mute==false) {
+            WordFury.MUSIC.play('', 0, 1, true);
 
-        WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
+             WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
+         }
         // set background
         var background;
         if (WordFury._background==1){
@@ -87,7 +90,7 @@ WordFury.Game.prototype = {
         // initialize spawn timer
         this._spawnWordTimer = 0;
         // initialize score text with value 0
-        WordFury._scoreText = this.add.text(this.world.leftX, 700, 'Score: 0', WordFury._fontStyle);            
+        WordFury._scoreText = this.add.text(this.world.leftX, 800, 'Score: 0', WordFury._fontStyle);            
         // create new group for words
         this._wordGroup = this.add.group();
         // spawn first word

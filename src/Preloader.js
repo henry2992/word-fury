@@ -61,8 +61,6 @@ WordFury.Preloader.prototype = {
 			this.add.text(this.world.leftX, 750, "Click Main Menu to Continue", WordFury._fontStyle);
 			var startButton= this.add.button(WordFury.GAME_WIDTH-60, 750, 'startButton', this.state.start('MainMenu'), this, 'buttonOver', 'buttonOut', 'buttonOver');
 			startButton.anchor.setTo(0.5, 0.5);  
-
-			//this.state.start('MainMenu');
 		}
 		// transition to the MainMenu state
 		//this.state.start('MainMenu');
