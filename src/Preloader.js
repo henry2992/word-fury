@@ -44,7 +44,7 @@ WordFury.Preloader.prototype = {
 		// load images
 		this.load.image('westButton', 'images/westbutton.png');
 		this.load.image('spaceButton', 'images/spacebutton.png');
-		this.load.image('muteButton','images/mutebutton.png');
+		this.load.image('muteButton','images/muteButton.png');
 		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 		// load json files
