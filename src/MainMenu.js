@@ -30,6 +30,9 @@ WordFury.MainMenu.prototype = {
 		var titleText = this.add.bitmapText(WordFury.GAME_WIDTH/2, 150, 'stack', 'WordFury', 100);
 		titleText.updateText();
 		titleText.x = WordFury.GAME_WIDTH/2 - (titleText.textWidth * 0.5);
+		var descriptionText = this.add.bitmapText(WordFury.GAME_WIDTH/2, 425, 'stack', 'Select a theme:', 50);
+		descriptionText.updateText();
+		descriptionText.x = WordFury.GAME_WIDTH/2 - (descriptionText.textWidth * 0.5);
 		// add and play the music
 		WordFury.MUSIC = this.add.audio('titleMusic', 1, true);
 
