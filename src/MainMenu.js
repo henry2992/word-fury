@@ -55,10 +55,8 @@ WordFury.MainMenu.prototype = {
 	},
 	startGame2: function(){
 		WordFury.MUSIC.stop();
-		if (WordFury.MUSIC.mute==false) {
-			WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
-			WordFury.Gunshot = this.add.audio('gunshot',1,false);
-		}
+		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 		WordFury._background = 2;
 		this.state.start('Game');
 	},
@@ -67,8 +65,8 @@ WordFury.MainMenu.prototype = {
 		if(WordFury.MUSIC.mute){
 			WordFury.MUSIC.mute = false;
 		}
-		// if the music isn;t muted, mute it
-		else{
+		// if the music isn't muted, mute it
+		else {
 			WordFury.MUSIC.mute = true;
 		}
 	}

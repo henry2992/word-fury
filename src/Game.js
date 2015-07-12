@@ -32,25 +32,26 @@ WordFury.Game.prototype = {
         // start the physics engine
         this.physics.startSystem(Phaser.Physics.ARCADE);
         //this.physics.arcade.gravity.y = 1;
-        
-        if (WordFury.MUSIC.mute==false) {
-            WordFury.MUSIC.play('', 0, 1, true);
+        WordFury.MUSIC.play('', 0, 1, true);
 
-             WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
-         }
+        WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
+        
         // set background
         var background;
         if (WordFury._background==1){
 
             background= this.add.sprite(0, 0, 'preloaderBackground');     
-           background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
-                   background.autoScroll(-200, 0);
+            background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
+            background.autoScroll(-200, 0);
 
 
         } else if (WordFury._background==2){ 
             background= this.add.sprite(0,0,'wildwestBackground');
             background = this.add.tileSprite(0, 0, 640, 960, 'wildwestBackground');
         }
+        var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 890, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+        muteButton.anchor.setTo(0.5, 0.5);
+
         // load the wordList
         WordFury._wordList = this.cache.getJSON('wordList');
         // create the textBox
@@ -114,11 +115,21 @@ WordFury.Game.prototype = {
             }
         });
     },
+    muteMusic: function(){
+        // if the music is muted, unmute it
+        if(WordFury.MUSIC.mute){
+            WordFury.MUSIC.mute = false;
+        }
+        // if the music isn't muted, mute it
+        else {
+            WordFury.MUSIC.mute = true;
+        }
+    },
+
     playLevelMusic:function(){
-            WordFury.MUSIC.play('', 0, 1, true);
-
-
-        },
+        WordFury.MUSIC.play('', 0, 1, true);
+        
+    },
     
     updateScore: function() {
         WordFury._score += 10;
