@@ -112,6 +112,8 @@ WordFury.Game.prototype = {
                 game.updateScore();
                 wordSprite.kill();
                 WordFury._spawnedWordCount += 1;
+            } else {
+                game.lowerScore();
             }
         });
     },
@@ -130,7 +132,10 @@ WordFury.Game.prototype = {
         WordFury.MUSIC.play('', 0, 1, true);
         
     },
-    
+    lowerScore: function(){
+        WordFury._score -= 5;
+        WordFury._scoreText.text = 'Score: ' + WordFury_score;
+    },
     updateScore: function() {
         WordFury._score += 10;
         WordFury._scoreText.text = 'Score: ' + WordFury._score;
