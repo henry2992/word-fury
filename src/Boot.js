@@ -24,7 +24,13 @@ WordFury.Boot.prototype = {
         //Backgrounds
         this.load.image('preloaderBackground', 'images/space.png');
         this.load.image('wildwestBackground','images/wildwest.png');
-        this.load.image('1bg','images/1.jpg');
+        this.load.image('wildwestBackground','images/wildwest.png');
+        this.load.image('beachBackground','images/beach.png');
+        this.load.image('jungleBackground','images/jungle.png');
+        this.load.image('oceanBackground','images/ocean.png');
+        this.load.image('mountainsBackground','images/mountains.png');
+        this.load.image('cityBackground','images/city.png');
+        this.load.image('flowersBackground','images/flowers.png');
         //Preloader Items
         this.load.image('preloaderBar', 'images/preload.png');
         this.load.image('preloaderText', 'images/loadText.png');

@@ -41,9 +41,16 @@ WordFury.Preloader.prototype = {
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
 		this.load.audio('gunshot',['sounds/gunshot.ogg','sound/gunshot.mp3']);
 		this.load.audio('lazer',['sounds/lazer.ogg','sound/lazer.mp3']);
-		// load images
+		// load Buttons
 		this.load.image('westButton', 'images/westbutton.png');
 		this.load.image('spaceButton', 'images/spacebutton.png');
+		this.load.image('beachButton','images/beachbutton.png');
+		this.load.image('cityButton','images/citybutton.png');
+		this.load.image('flowersButton','images/flowersbutton.png');
+		this.load.image('jungleButton','images/junglebutton.png');
+		this.load.image('mountainsButton','images/mountainsButton.png');
+		this.load.image('oceanButton','images/oceanbutton.png');
+		// load mute button
 		this.load.image('muteButton','images/muteButton.png');
 		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');

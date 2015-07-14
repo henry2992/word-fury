@@ -39,32 +39,45 @@ WordFury.Game.prototype = {
         // set background
         var background;
         if (WordFury._background==1){
-<<<<<<< HEAD
-            background= this.add.sprite(0, 0, '1bg');     
-            background = this.add.tileSprite(0, 0, 640, 960, '1bg');
-            background.autoScroll(-200, 0);
-=======
 
             background= this.add.sprite(0, 0, 'preloaderBackground');     
             background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
             background.autoScroll(-200, 0);
 
 
->>>>>>> 1a66dd3fb65b7920ee41cc24981aae797354bcc8
         } else if (WordFury._background==2){ 
             background= this.add.sprite(0,0,'wildwestBackground');
             background = this.add.tileSprite(0, 0, 640, 960, 'wildwestBackground');
         }
-<<<<<<< HEAD
+
         else if (WordFury._background==3){ 
-            background= this.add.sprite(0,0,'1bg');
-            background = this.add.tileSprite(0, 0, 640, 960, '1bg');
+            background= this.add.sprite(0,0,'beachBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'beachBackground');
         }
-=======
+        else if (WordFury._background==4){ 
+            background= this.add.sprite(0,0,'cityBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'cityBackground');
+        }
+         else if (WordFury._background==5){ 
+            background= this.add.sprite(0,0,'flowersBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'flowersBackground');
+        }
+         else if (WordFury._background==6){ 
+            background= this.add.sprite(0,0,'jungleBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'jungleBackground');
+        }
+         else if (WordFury._background==7){ 
+            background= this.add.sprite(0,0,'mountainsBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'mountainsBackground');
+        }
+         else if (WordFury._background==8){ 
+            background= this.add.sprite(0,0,'oceanBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'oceanBackground');
+        }
+
         var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 890, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
         muteButton.anchor.setTo(0.5, 0.5);
 
->>>>>>> 1a66dd3fb65b7920ee41cc24981aae797354bcc8
         // load the wordList
         WordFury._wordList = this.cache.getJSON('wordList');
         // create the textBox
