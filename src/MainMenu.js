@@ -30,6 +30,9 @@ WordFury.MainMenu.prototype = {
 		var titleText = this.add.bitmapText(WordFury.GAME_WIDTH/2, 150, 'stack', 'WordFury', 100);
 		titleText.updateText();
 		titleText.x = WordFury.GAME_WIDTH/2 - (titleText.textWidth * 0.5);
+		var descriptionText = this.add.bitmapText(WordFury.GAME_WIDTH/2, 425, 'stack', 'Select a theme:', 50);
+		descriptionText.updateText();
+		descriptionText.x = WordFury.GAME_WIDTH/2 - (descriptionText.textWidth * 0.5);
 		// add and play the music
 		WordFury.MUSIC = this.add.audio('titleMusic', 1, true);
 
@@ -50,12 +53,16 @@ WordFury.MainMenu.prototype = {
 		playButton.anchor.setTo(0.5, 0.5);
 		var playButton = this.add.button(WordFury.GAME_WIDTH/3*2, 600, 'westButton', this.startGame2, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		playButton.anchor.setTo(0.5, 0.5);
+<<<<<<< HEAD
 		var playButton = this.add.button(WordFury.GAME_WIDTH/3, 700, 'westButton', this.startGame3, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		playButton.anchor.setTo(0.5, 0.5);
 		var playButton = this.add.button(WordFury.GAME_WIDTH/3*2, 700, 'westButton', this.startGame2, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		playButton.anchor.setTo(0.5, 0.5);
 		//mute button
 		var muteButton = this.add.button(WordFury.GAME_WIDTH/2, 800, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+=======
+		var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 50, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+>>>>>>> 1a66dd3fb65b7920ee41cc24981aae797354bcc8
 		muteButton.anchor.setTo(0.5, 0.5);
 	
 	},
@@ -69,7 +76,6 @@ WordFury.MainMenu.prototype = {
 		WordFury.MUSIC.stop();
 		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
-
 		WordFury._background = 2;
 		this.state.start('Game');
 	},
@@ -86,8 +92,8 @@ WordFury.MainMenu.prototype = {
 		if(WordFury.MUSIC.mute){
 			WordFury.MUSIC.mute = false;
 		}
-		// if the music isn;t muted, mute it
-		else{
+		// if the music isn't muted, mute it
+		else {
 			WordFury.MUSIC.mute = true;
 		}
 	}

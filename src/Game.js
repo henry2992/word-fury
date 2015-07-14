@@ -35,20 +35,36 @@ WordFury.Game.prototype = {
         WordFury.MUSIC.play('', 0, 1, true);
 
         WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
+        
         // set background
         var background;
         if (WordFury._background==1){
+<<<<<<< HEAD
             background= this.add.sprite(0, 0, '1bg');     
             background = this.add.tileSprite(0, 0, 640, 960, '1bg');
             background.autoScroll(-200, 0);
+=======
+
+            background= this.add.sprite(0, 0, 'preloaderBackground');     
+            background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
+            background.autoScroll(-200, 0);
+
+
+>>>>>>> 1a66dd3fb65b7920ee41cc24981aae797354bcc8
         } else if (WordFury._background==2){ 
             background= this.add.sprite(0,0,'wildwestBackground');
             background = this.add.tileSprite(0, 0, 640, 960, 'wildwestBackground');
         }
+<<<<<<< HEAD
         else if (WordFury._background==3){ 
             background= this.add.sprite(0,0,'1bg');
             background = this.add.tileSprite(0, 0, 640, 960, '1bg');
         }
+=======
+        var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 890, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+        muteButton.anchor.setTo(0.5, 0.5);
+
+>>>>>>> 1a66dd3fb65b7920ee41cc24981aae797354bcc8
         // load the wordList
         WordFury._wordList = this.cache.getJSON('wordList');
         // create the textBox
@@ -88,7 +104,7 @@ WordFury.Game.prototype = {
         // initialize spawn timer
         this._spawnWordTimer = 0;
         // initialize score text with value 0
-        WordFury._scoreText = this.add.text(this.world.leftX, 700, 'Score: 0', WordFury._fontStyle);            
+        WordFury._scoreText = this.add.text(this.world.leftX, 800, 'Score: 0', WordFury._fontStyle);            
         // create new group for words
         this._wordGroup = this.add.group();
         // spawn first word
@@ -109,15 +125,30 @@ WordFury.Game.prototype = {
                 game.updateScore();
                 wordSprite.kill();
                 WordFury._spawnedWordCount += 1;
+            } else {
+                game.lowerScore();
             }
         });
     },
+    muteMusic: function(){
+        // if the music is muted, unmute it
+        if(WordFury.MUSIC.mute){
+            WordFury.MUSIC.mute = false;
+        }
+        // if the music isn't muted, mute it
+        else {
+            WordFury.MUSIC.mute = true;
+        }
+    },
+
     playLevelMusic:function(){
-            WordFury.MUSIC.play('', 0, 1, true);
-
-
-        },
-    
+        WordFury.MUSIC.play('', 0, 1, true);
+        
+    },
+    lowerScore: function(){
+        WordFury._score -= 5;
+        WordFury._scoreText.text = 'Score: ' + WordFury_score;
+    },
     updateScore: function() {
         WordFury._score += 10;
         WordFury._scoreText.text = 'Score: ' + WordFury._score;

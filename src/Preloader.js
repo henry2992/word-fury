@@ -21,14 +21,21 @@ WordFury.Preloader = function(game){
 WordFury.Preloader.prototype = {
 	preload: function(){
 		// create a boolean to prevent us from going to the main menu too soon
-		this.ready = false;
+
 		// set background and add a loading bar and text
 		this.stage.backgroundColor = '#7F8C8D';
 		this.preloadText = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2.5, 'preloaderText');
 		this.preloadText.anchor.setTo(0.5, 0.5);
-		this.preloadBar = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2, 'preloaderBar');
-		this.preloadBar.anchor.setTo(0.5, 0.5);
-	    this.load.setPreloadSprite(this.preloadBar);
+		///this.preloadBar = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2, 'preloaderBar');
+		///this.preloadBar.anchor.setTo(0.5, 0.5);
+	    ///this.load.setPreloadSprite(this.preloadBar);
+
+	    //instructions for the game
+	    this.add.text(this.world.leftX, 450, "Welcome to WordFury!", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 500, "This is a fast paced typing game.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 550, "Words fall from the top of the screen.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 600, "Score points by successfully typing the word", WordFury._fontStyle);
+		this.add.text(this.world.leftX, 650, "Lose points when words reach the bottom.", WordFury._fontStyle); 
 		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
@@ -37,7 +44,7 @@ WordFury.Preloader.prototype = {
 		// load images
 		this.load.image('westButton', 'images/westbutton.png');
 		this.load.image('spaceButton', 'images/spacebutton.png');
-		this.load.image('muteButton','images/mutebutton.png');
+		this.load.image('muteButton','images/muteButton.png');
 		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 		// load json files
@@ -48,12 +55,15 @@ WordFury.Preloader.prototype = {
 		this.preloadBar.cropEnabled = false;
 	},
 	update: function(){
-		// wait on this screen until the music is ready to go
-		if (this.cache.isSoundDecoded('titleMusic') && this.ready == false)
+	// wait on this screen until the music is ready to go
+		if (this.cache.isSoundDecoded('titleMusic')) 
 		{
-			this.ready = true;
-			// transition to the MainMenu state
-			this.state.start('MainMenu');
+			this.add.text(this.world.leftX, 750, "Click Main Menu to Continue", WordFury._fontStyle);
+			var startButton= this.add.button(WordFury.GAME_WIDTH-60, 750, 'startButton', this.state.start('MainMenu'), this, 'buttonOver', 'buttonOut', 'buttonOver');
+			startButton.anchor.setTo(0.5, 0.5);  
 		}
+		// transition to the MainMenu state
+		//this.state.start('MainMenu');
 	}
+	
 };
