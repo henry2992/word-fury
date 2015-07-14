@@ -38,15 +38,16 @@ WordFury.Game.prototype = {
         // set background
         var background;
         if (WordFury._background==1){
-
-            background= this.add.sprite(0, 0, 'preloaderBackground');     
-           background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
-                   background.autoScroll(-200, 0);
-
-
+            background= this.add.sprite(0, 0, '1bg');     
+            background = this.add.tileSprite(0, 0, 640, 960, '1bg');
+            background.autoScroll(-200, 0);
         } else if (WordFury._background==2){ 
             background= this.add.sprite(0,0,'wildwestBackground');
             background = this.add.tileSprite(0, 0, 640, 960, 'wildwestBackground');
+        }
+        else if (WordFury._background==3){ 
+            background= this.add.sprite(0,0,'1bg');
+            background = this.add.tileSprite(0, 0, 640, 960, '1bg');
         }
         // load the wordList
         WordFury._wordList = this.cache.getJSON('wordList');

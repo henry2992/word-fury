@@ -37,12 +37,27 @@ WordFury.MainMenu.prototype = {
 		WordFury.MUSIC.play();
 		WordFury.Gunshot = this.add.audio('lazer',3,false);
 		// add the play button
-		var playButton = this.add.button(WordFury.GAME_WIDTH/3, 600, 'spaceButton', this.startGame, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		var playButton = this.add.button(WordFury.GAME_WIDTH/3, 400, 'spaceButton', this.startGame, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		playButton.anchor.setTo(0.5, 0.5);
+		var playButton = this.add.button(WordFury.GAME_WIDTH/3*2, 400, 'westButton', this.startGame2, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		playButton.anchor.setTo(0.5, 0.5);
+		//new buttons
+		var playButton = this.add.button(WordFury.GAME_WIDTH/3, 500, 'westButton', this.startGame3, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		playButton.anchor.setTo(0.5, 0.5);
+		var playButton = this.add.button(WordFury.GAME_WIDTH/3*2, 500, 'westButton', this.startGame2, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		playButton.anchor.setTo(0.5, 0.5);
+		var playButton = this.add.button(WordFury.GAME_WIDTH/3, 600, 'westButton', this.startGame3, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		playButton.anchor.setTo(0.5, 0.5);
 		var playButton = this.add.button(WordFury.GAME_WIDTH/3*2, 600, 'westButton', this.startGame2, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		playButton.anchor.setTo(0.5, 0.5);
-		var muteButton = this.add.button(WordFury.GAME_WIDTH/2, 700, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		var playButton = this.add.button(WordFury.GAME_WIDTH/3, 700, 'westButton', this.startGame3, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		playButton.anchor.setTo(0.5, 0.5);
+		var playButton = this.add.button(WordFury.GAME_WIDTH/3*2, 700, 'westButton', this.startGame2, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		playButton.anchor.setTo(0.5, 0.5);
+		//mute button
+		var muteButton = this.add.button(WordFury.GAME_WIDTH/2, 800, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		muteButton.anchor.setTo(0.5, 0.5);
+	
 	},
 	startGame: function(){
 		// transition to the Game state 
@@ -56,6 +71,14 @@ WordFury.MainMenu.prototype = {
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 
 		WordFury._background = 2;
+		this.state.start('Game');
+	},
+	startGame3: function(){
+		WordFury.MUSIC.stop();
+		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.Gunshot = this.add.audio('gunshot',1,false);
+
+		WordFury._background = 3;
 		this.state.start('Game');
 	},
 	muteMusic: function(){
