@@ -73,13 +73,13 @@ WordFury.MainMenu.prototype = {
 	
 	},
 	setEasy: function(){
-		this._level=1;
+		WordFury._level=1;
 	},
 	setMedium: function(){
-		this._level=2;
+		WordFury._level=2;
 	},
 	setHard:function(){
-		this._level=3;
+		WordFury._level=3;
 	},
 	startGame: function(){
 		// transition to the Game state 

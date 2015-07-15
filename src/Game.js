@@ -210,7 +210,14 @@ WordFury.item = {
         game.physics.enable(wordSprite);
         wordSprite.anchor.setTo(0.5, 0.5);
         //wordSprite.body.velocity.setTo(0, 100+WordFury._wordCount*2);
-        wordSprite.body.velocity.setTo(0, 20+WordFury._wordCount*2);
+        
+        if (WordFury._level==1) {
+            wordSprite.body.velocity.setTo(0, 10+WordFury._wordCount/2);
+        } else if (WordFury._level==2) {
+            wordSprite.body.velocity.setTo(0, 50+WordFury._wordCount*2);
+        } else if (WordFury._level==3) {
+            wordSprite.body.velocity.setTo(0, 100+WordFury._wordCount*2);
+        }  
         var rand = game.rnd.realInRange(0, 100);
         if(rand > 50) {
             wordSprite.body.angularVelocity = 50;
