@@ -24,18 +24,18 @@ WordFury.Preloader.prototype = {
 
 		// set background and add a loading bar and text
 		this.stage.backgroundColor = '#7F8C8D';
-		this.preloadText = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2.5, 'preloaderText');
+		this.preloadText = this.add.sprite(WordFury.GAME_WIDTH/2, 750, 'preloaderText');
 		this.preloadText.anchor.setTo(0.5, 0.5);
 		///this.preloadBar = this.add.sprite(WordFury.GAME_WIDTH/2, WordFury.GAME_HEIGHT/2, 'preloaderBar');
 		///this.preloadBar.anchor.setTo(0.5, 0.5);
 	    ///this.load.setPreloadSprite(this.preloadBar);
 
 	    //instructions for the game
-	    this.add.text(this.world.leftX, 450, "Welcome to WordFury!", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 500, "This is a fast paced typing game.", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 550, "Words fall from the top of the screen.", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 600, "Score points by successfully typing the word", WordFury._fontStyle);
-		this.add.text(this.world.leftX, 650, "Lose points when words reach the bottom.", WordFury._fontStyle); 
+	    this.add.text(this.world.leftX, 200, "Welcome to WordFury!", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 250, "This is a fast paced typing game.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 300, "Words fall from the top of the screen.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 350, "Score points by successfully typing the word", WordFury._fontStyle);
+		this.add.text(this.world.leftX, 400, "Lose points when words reach the bottom.", WordFury._fontStyle); 
 		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
@@ -69,11 +69,16 @@ WordFury.Preloader.prototype = {
 		if (this.cache.isSoundDecoded('titleMusic')) 
 		{
 			this.add.text(this.world.leftX, 750, "Click Main Menu to Continue", WordFury._fontStyle);
-			var startButton= this.add.button(WordFury.GAME_WIDTH-60, 750, 'startButton', this.state.start('MainMenu'), this, 'buttonOver', 'buttonOut', 'buttonOver');
-			startButton.anchor.setTo(0.5, 0.5);  
+			var startButton= this.add.button(WordFury.GAME_WIDTH-60, 750, 'startButton', this.advance, this, 'buttonOver', 'buttonOut', 'buttonOver');
+			startButton.anchor.setTo(0.5, 0.5);
+			this.preloadText.destroy();
+
 		}
 		// transition to the MainMenu state
 		//this.state.start('MainMenu');
+	},
+	advance: function(){
+		this.state.start('MainMenu');
 	}
 	
 };
