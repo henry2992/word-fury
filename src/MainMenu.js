@@ -18,6 +18,7 @@ WordFury.MainMenu = function(game){
 	WordFury.MUSIC = null;
 	WordFury.Gunshot = null;
 	WordFury._background;
+	WordFury._level = 1;
 };
 
 WordFury.MainMenu.prototype = {
@@ -62,7 +63,23 @@ WordFury.MainMenu.prototype = {
 		var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 50, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		muteButton.anchor.setTo(0.5, 0.5);
 
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4, 350, 'easyButton', this.setEasy, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*2, 350, 'mediumButton', this.setMedium, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*3, 350, 'hardButton', this.setHard, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+
 	
+	},
+	setEasy: function(){
+		this._level=1;
+	},
+	setMedium: function(){
+		this._level=2;
+	},
+	setHard:function(){
+		this._level=3;
 	},
 	startGame: function(){
 		// transition to the Game state 
