@@ -31,24 +31,27 @@ WordFury.Preloader.prototype = {
 	    ///this.load.setPreloadSprite(this.preloadBar);
 
 	    //instructions for the game
-<<<<<<< HEAD
 	    this.add.text(this.world.leftX, 450, "Welcome to WordFury!", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 500, "This is a fast paced typing game.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 550, "Words fall from the top of the screen.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 600, "Score points by successfully typing the word", WordFury._fontStyle);
 		this.add.text(this.world.leftX, 650, "Lose points when words reach the bottom.", WordFury._fontStyle); 
 		// load tracks
-=======
+
 	    this.add.text(this.world.leftX, 200, "Welcome to WordFury!", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 250, "This is a fast paced typing game.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 300, "Words fall from the top of the screen.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 350, "Score points by successfully typing the word", WordFury._fontStyle);
 		this.add.text(this.world.leftX, 400, "Lose points when words reach the bottom.", WordFury._fontStyle); 
 		// load audio
->>>>>>> 388cd13549a373d8aa650af73686158f7efef2b8
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
 		this.load.audio('jungleMusic',['sounds/jungle.ogg','sounds/jungle.mp3']);
+		this.load.audio('cityMusic',['sounds/city.ogg','sounds/city.mp3']);
+		this.load.audio('flowersMusic',['sounds/flowers.ogg','sounds/flowers.mp3']);
+		this.load.audio('beachMusic',['sounds/beach.ogg','sounds/beach.mp3']);
+		this.load.audio('mountainsMusic',['sounds/mountains.ogg','sounds/mountains.mp3']);
+		this.load.audio('oceanMusic',['sounds/ocean.ogg','sounds/ocean.mp3']);
 
 		//load sound effects
 		this.load.audio('gunshot',['sounds/gunshot.ogg','sound/gunshot.mp3']);

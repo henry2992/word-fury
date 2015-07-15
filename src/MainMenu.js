@@ -96,21 +96,21 @@ WordFury.MainMenu.prototype = {
 	},
 	startGame3: function(){
 		WordFury.MUSIC.stop();
-		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.MUSIC= this.add.audio('beachMusic', 1, true);
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 		WordFury._background = 3;
 		this.state.start('Game');
 	},
 	startGame4: function(){
 		WordFury.MUSIC.stop();
-		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.MUSIC= this.add.audio('cityMusic', 1, true);
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 		WordFury._background = 4;
 		this.state.start('Game');
 	},
 	startGame5: function(){
 		WordFury.MUSIC.stop();
-		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.MUSIC= this.add.audio('flowersMusic', 1, true);
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 		WordFury._background = 5;
 		this.state.start('Game');
@@ -124,14 +124,14 @@ WordFury.MainMenu.prototype = {
 	},
 	startGame7: function(){
 		WordFury.MUSIC.stop();
-		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.MUSIC= this.add.audio('mountainsMusic', 1, true);
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 		WordFury._background = 7;
 		this.state.start('Game');
 	},
 	startGame8: function(){
 		WordFury.MUSIC.stop();
-		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.MUSIC= this.add.audio('oceanMusic', 1, true);
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 		WordFury._background = 8;
 		this.state.start('Game');
