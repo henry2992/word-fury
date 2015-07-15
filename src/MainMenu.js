@@ -100,7 +100,7 @@ WordFury.MainMenu.prototype = {
 	},
 	startGame6: function(){
 		WordFury.MUSIC.stop();
-		WordFury.MUSIC= this.add.audio('countryMusic', 1, true);
+		WordFury.MUSIC= this.add.audio('jungleMusic', 1, true);
 		WordFury.Gunshot = this.add.audio('gunshot',1,false);
 		WordFury._background = 6;
 		this.state.start('Game');

@@ -36,9 +36,12 @@ WordFury.Preloader.prototype = {
         this.add.text(this.world.leftX, 550, "Words fall from the top of the screen.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 600, "Score points by successfully typing the word", WordFury._fontStyle);
 		this.add.text(this.world.leftX, 650, "Lose points when words reach the bottom.", WordFury._fontStyle); 
-		// load audio
+		// load tracks
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
+		this.load.audio('jungleMusic',['sounds/jungle.ogg','sounds/jungle.mp3']);
+
+		//load sound effects
 		this.load.audio('gunshot',['sounds/gunshot.ogg','sound/gunshot.mp3']);
 		this.load.audio('lazer',['sounds/lazer.ogg','sound/lazer.mp3']);
 		// load Buttons
