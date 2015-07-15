@@ -118,7 +118,7 @@ WordFury.Game.prototype = {
         // initialize spawn timer
         this._spawnWordTimer = 0;
         // initialize score text with value 0
-        WordFury._scoreText = this.add.text(this.world.leftX, 800, 'Score: 0', WordFury._fontStyle);            
+        WordFury._scoreText = this.add.text(this.world.leftX, 750, '\n\nScore: 0', WordFury._fontStyle);            
         // create new group for words
         this._wordGroup = this.add.group();
         // spawn first word
@@ -163,11 +163,11 @@ WordFury.Game.prototype = {
     },
     lowerScore: function() {
         WordFury._score += -5;
-        WordFury._scoreText.text = 'Incorrect!\nScore: ' + WordFury._score;
+        WordFury._scoreText.text = 'Try again!\n-5 points\nScore: ' + WordFury._score;
     },
     updateScore: function() {
         WordFury._score += 10;
-        WordFury._scoreText.text = 'Score: ' + WordFury._score;
+        WordFury._scoreText.text = 'Great job!\n+10 points\nScore: ' + WordFury._score;
 
     },
     update: function(){
@@ -232,7 +232,7 @@ WordFury.item = {
         WordFury._score -=10;
         word.kill();
         WordFury._spawnedWordCount += 1;
-        WordFury._scoreText.text = 'Score: ' + WordFury._score;
+        WordFury._scoreText.text = 'Missed word!\n-10 points\nScore: ' + WordFury._score;
         
     }
 };
