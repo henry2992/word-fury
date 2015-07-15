@@ -19,6 +19,7 @@ WordFury.Game = function(game){
     this._entry = null;
     this._spawnWordTimer = 0;
     this._wordGroup = null;
+
     // define variables that can be in WordFury.item
     WordFury._scoreText = null;
     WordFury._score = 0;
@@ -75,8 +76,8 @@ WordFury.Game.prototype = {
             background = this.add.tileSprite(0, 0, 640, 960, 'oceanBackground');
         }
 
-        var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 890, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
-        muteButton.anchor.setTo(0.5, 0.5);
+       // var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 890, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+       // muteButton.anchor.setTo(0.5, 0.5);
 
         // load the wordList
         WordFury._wordList = this.cache.getJSON('wordList');
@@ -124,24 +125,26 @@ WordFury.Game.prototype = {
         WordFury.item.spawnWord(this);
     },
     wordSubmit: function(game){
+        wordExists = false;
         this.checkValue(game);
     },
     checkValue: function(game){
         var enteredWord = this._entry.value();
         this._entry.value("");
-
         this._wordGroup.forEachAlive(function(wordSprite){
             var word = wordSprite.getChildAt(0);
             if(enteredWord.trim() == word.text.trim()) {
+                wordExists=true;
                 WordFury.Gunshot.play();
                 WordFury._wordCount ++;
                 game.updateScore();
                 wordSprite.kill();
                 WordFury._spawnedWordCount += 1;
-            } else {
-                game.lowerScore();
             }
         });
+        if (wordExists==false) {
+            game.lowerScore();
+        } 
     },
     muteMusic: function(){
         // if the music is muted, unmute it
@@ -158,9 +161,9 @@ WordFury.Game.prototype = {
         WordFury.MUSIC.play('', 0, 1, true);
         
     },
-    lowerScore: function(){
-        WordFury._score -= 5;
-        WordFury._scoreText.text = 'Score: ' + WordFury_score;
+    lowerScore: function() {
+        WordFury._score += -5;
+        WordFury._scoreText.text = 'Incorrect!\nScore: ' + WordFury._score;
     },
     updateScore: function() {
         WordFury._score += 10;
