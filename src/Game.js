@@ -80,7 +80,16 @@ WordFury.Game.prototype = {
        // muteButton.anchor.setTo(0.5, 0.5);
 
         // load the wordList
-        WordFury._wordList = this.cache.getJSON('wordList');
+        if (WordFury._language == "swahili") {
+        		WordFury._wordList = this.cache.getJSON('swahiliWords');
+        }
+        else if (WordFury._language == "spanish") {
+        		WordFury._wordList = this.cache.getJSON('spanishWords');
+        }
+        else {
+        		WordFury._wordList = this.cache.getJSON('englishWords');
+        }
+        	
         // create the textBox
         var textInputCanvas = document.getElementById('canvas');
         // textInputCanvas.style.top = this.world.botY + 100 + 'px';
