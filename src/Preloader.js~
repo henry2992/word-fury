@@ -17,6 +17,7 @@
 WordFury.Preloader = function(game){
 	WordFury.GAME_WIDTH = 640;
 	WordFury.GAME_HEIGHT = 960;
+	WordFury._language;
 };
 WordFury.Preloader.prototype = {
 	preload: function(){
@@ -30,6 +31,14 @@ WordFury.Preloader.prototype = {
 		///this.preloadBar.anchor.setTo(0.5, 0.5);
 	    ///this.load.setPreloadSprite(this.preloadBar);
 
+		//icon buttons for language selection
+			var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 350, 'englishButton', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
+				 englishButton.anchor.setTo(0.5, 0.5);
+			var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 350, 'swahiliButton', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
+				 swahiliButton.anchor.setTo(0.5, 0.5);		
+			var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 350, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
+				 spanishButton.anchor.setTo(0.5, 0.5);	
+			    
 	    //instructions for the game
 	    this.add.text(this.world.leftX, 450, "Welcome to WordFury!", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 500, "This is a fast paced typing game.", WordFury._fontStyle);  
@@ -88,6 +97,16 @@ WordFury.Preloader.prototype = {
 	},
 	advance: function(){
 		this.state.start('MainMenu');
+	},
+	//functions to assign language name to the Wordfury._language
+	english: function () {	
+		WordFury._language = "english";
+	},
+	swahili: function () {
+		WordFury._language = "swahili";
+	},
+	spanish: function () {
+		WordFury._language = "spanish";
 	}
 	
 };
