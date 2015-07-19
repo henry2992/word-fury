@@ -76,7 +76,9 @@ WordFury.Preloader.prototype = {
 		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 		// load json files
-		this.load.json('wordList','wordList/easyWords.json');
+		this.load.json('englishWords','wordList/englishWords.json');
+		this.load.json('swahiliWords','wordList/swahiliWords.json');
+		this.load.json('spanishWords','wordList/spanishWords.json');
 	},
 	create: function(){
 		// disable the crop so it doesn't keep going as the music decodes
