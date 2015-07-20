@@ -36,6 +36,30 @@ WordFury.GameOver.prototype = {
             background= this.add.sprite(0,0,'wildwestBackground');
             background = this.add.tileSprite(0, 0, 640, 960, 'wildwestBackground');
         }
+         else if (WordFury._background==3){ 
+            background= this.add.sprite(0,0,'beachBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'beachBackground');
+        }
+        else if (WordFury._background==4){ 
+            background= this.add.sprite(0,0,'cityBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'cityBackground');
+        }
+         else if (WordFury._background==5){ 
+            background= this.add.sprite(0,0,'flowersBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'flowersBackground');
+        }
+         else if (WordFury._background==6){ 
+            background= this.add.sprite(0,0,'jungleBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'jungleBackground');
+        }
+         else if (WordFury._background==7){ 
+            background= this.add.sprite(0,0,'mountainsBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'mountainsBackground');
+        }
+         else if (WordFury._background==8){ 
+            background= this.add.sprite(0,0,'oceanBackground');
+            background = this.add.tileSprite(0, 0, 640, 960, 'oceanBackground');
+        }
         // set font style
         var _fontStyle = { font: "32px Arial", fill: "#ff0044", align: "center" };
         
