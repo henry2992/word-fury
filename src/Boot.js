@@ -24,7 +24,6 @@ WordFury.Boot.prototype = {
         //Backgrounds
         this.load.image('preloaderBackground', 'images/space.png');
         this.load.image('wildwestBackground','images/wildwest.png');
-        this.load.image('wildwestBackground','images/wildwest.png');
         this.load.image('beachBackground','images/beach.png');
         this.load.image('jungleBackground','images/jungle.png');
         this.load.image('oceanBackground','images/ocean.png');
@@ -35,7 +34,10 @@ WordFury.Boot.prototype = {
         this.load.image('preloaderBar', 'images/preload.png');
         this.load.image('preloaderText', 'images/loadText.png');
         this.load.image('monitorBackground','images/monitor.png');
-        this.load.image('startButton', 'images/startButton.png')
+        this.load.image('startButton', 'images/startButton.png');
+        this.load.image('englishButton','images/englishbutton.png');
+        this.load.image('swahiliButton','images/swahilibutton.png');
+		  this.load.image('spanishButton','images/spanishbutton.png');
     },
     create: function(){
         // setting the scale options

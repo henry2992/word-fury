@@ -17,6 +17,7 @@
 WordFury.Preloader = function(game){
 	WordFury.GAME_WIDTH = 640;
 	WordFury.GAME_HEIGHT = 960;
+	WordFury._language;
 };
 WordFury.Preloader.prototype = {
 	preload: function(){
@@ -30,19 +31,21 @@ WordFury.Preloader.prototype = {
 		///this.preloadBar.anchor.setTo(0.5, 0.5);
 	    ///this.load.setPreloadSprite(this.preloadBar);
 
+		//icon buttons for language selection
+			var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 350, 'englishButton', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
+				 englishButton.anchor.setTo(0.5, 0.5);
+			var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 350, 'swahiliButton', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
+				 swahiliButton.anchor.setTo(0.5, 0.5);		
+			var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 350, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
+				 spanishButton.anchor.setTo(0.5, 0.5);	
+			    
 	    //instructions for the game
 	    this.add.text(this.world.leftX, 450, "Welcome to WordFury!", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 500, "This is a fast paced typing game.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 550, "Words fall from the top of the screen.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 600, "Score points by successfully typing the word", WordFury._fontStyle);
 		this.add.text(this.world.leftX, 650, "Lose points when words reach the bottom.", WordFury._fontStyle); 
-		// load tracks
-
-	    this.add.text(this.world.leftX, 200, "Welcome to WordFury!", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 250, "This is a fast paced typing game.", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 300, "Words fall from the top of the screen.", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 350, "Score points by successfully typing the word", WordFury._fontStyle);
-		this.add.text(this.world.leftX, 400, "Lose points when words reach the bottom.", WordFury._fontStyle); 
+	    
 		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
@@ -73,7 +76,9 @@ WordFury.Preloader.prototype = {
 		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 		// load json files
-		this.load.json('wordList','wordList/easyWords.json');
+		this.load.json('englishWords','wordList/englishWords.json');
+		this.load.json('swahiliWords','wordList/swahiliWords.json');
+		this.load.json('spanishWords','wordList/spanishWords.json');
 	},
 	create: function(){
 		// disable the crop so it doesn't keep going as the music decodes
@@ -94,6 +99,16 @@ WordFury.Preloader.prototype = {
 	},
 	advance: function(){
 		this.state.start('MainMenu');
+	},
+	//functions to assign language name to the Wordfury._language
+	english: function () {	
+		WordFury._language = "english";
+	},
+	swahili: function () {
+		WordFury._language = "swahili";
+	},
+	spanish: function () {
+		WordFury._language = "spanish";
 	}
 	
 };
