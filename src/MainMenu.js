@@ -63,7 +63,7 @@ WordFury.MainMenu.prototype = {
 		var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 50, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		muteButton.anchor.setTo(0.5, 0.5);
 
-		var diffButton = this.add.button(WordFury.GAME_WIDTH/4, 350, 'easyButton', this.setEasy, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4, 350, 'easyButtonSelected', this.setEasy, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		diffButton.anchor.setTo(0.5, 0.5);
 		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*2, 350, 'mediumButton', this.setMedium, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		diffButton.anchor.setTo(0.5, 0.5);
@@ -74,12 +74,30 @@ WordFury.MainMenu.prototype = {
 	},
 	setEasy: function(){
 		WordFury._level=1;
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4, 350, 'easyButtonSelected', this.setEasy, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*2, 350, 'mediumButton', this.setMedium, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*3, 350, 'hardButton', this.setHard, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
 	},
 	setMedium: function(){
 		WordFury._level=2;
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4, 350, 'easyButton', this.setEasy, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*2, 350, 'mediumButtonSelected', this.setMedium, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*3, 350, 'hardButton', this.setHard, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
 	},
 	setHard:function(){
 		WordFury._level=3;
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4, 350, 'easyButton', this.setEasy, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*2, 350, 'mediumButton', this.setMedium, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
+		var diffButton = this.add.button(WordFury.GAME_WIDTH/4*3, 350, 'hardButtonSelected', this.setHard, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		diffButton.anchor.setTo(0.5, 0.5);
 	},
 	startGame: function(){
 		// transition to the Game state 
