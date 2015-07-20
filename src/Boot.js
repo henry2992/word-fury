@@ -37,7 +37,8 @@ WordFury.Boot.prototype = {
         this.load.image('startButton', 'images/startButton.png');
         this.load.image('englishButton','images/englishbutton.png');
         this.load.image('englishButtonSelected', 'images/englishbuttonSelected.png');
-        //this.load.image('swahiliButton','images/swahilibutton.png');
+        this.load.image('swahiliButton','images/swahilibutton.png');
+        this.load.image('swahiliButtonSelected', 'images/swahilibuttonSelected.png');
 		this.load.image('spanishButton','images/spanishbutton.png');
         this.load.image('spanishButtonSelected', 'images/spanishbuttonSelected.png');
     },

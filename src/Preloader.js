@@ -35,8 +35,8 @@ WordFury.Preloader.prototype = {
 		this.add.text(WordFury.GAME_WIDTH/2-100, 150, "Select a language:", WordFury._fontStyle);
 		var englishButton = this.add.button(WordFury.GAME_WIDTH/2-200, 250, 'englishButtonSelected', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		englishButton.anchor.setTo(0.5, 0.5);
-			//var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 350, 'swahiliButton', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
-				 //swahiliButton.anchor.setTo(0.5, 0.5);		
+		var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 250, 'swahiliButton', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		swahiliButton.anchor.setTo(0.5, 0.5);		
 		var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 250, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		spanishButton.anchor.setTo(0.5, 0.5);	
 			    
@@ -84,7 +84,7 @@ WordFury.Preloader.prototype = {
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 		// load json files
 		this.load.json('englishWords','wordList/englishWords.json');
-		//this.load.json('swahiliWords','wordList/swahiliWords.json');
+		this.load.json('swahiliWords','wordList/swahiliWords.json');
 		this.load.json('spanishWords','wordList/spanishWords.json');
 	},
 	create: function(){
@@ -111,17 +111,28 @@ WordFury.Preloader.prototype = {
 	english: function () {	
 		var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 250, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		spanishButton.anchor.setTo(0.5, 0.5);
+		var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 250, 'swahiliButton', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		swahiliButton.anchor.setTo(0.5, 0.5);
 		var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 250, 'englishButtonSelected', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		englishButton.anchor.setTo(0.5, 0.5);
 		WordFury._language = "english";
 
 	},
-/*	swahili: function () {
+	swahili: function () {
+		var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 250, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		spanishButton.anchor.setTo(0.5, 0.5);
+		var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 250, 'swahiliButtonSelected', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		swahiliButton.anchor.setTo(0.5, 0.5);
+		var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 250, 'englishButton', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		englishButton.anchor.setTo(0.5, 0.5);
 		WordFury._language = "swahili";
-	},*/
+
+	},
 	spanish: function () {
 		var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 250, 'spanishButtonSelected', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		spanishButton.anchor.setTo(0.5, 0.5);
+		var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 250, 'swahiliButton', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		swahiliButton.anchor.setTo(0.5, 0.5);
 		var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 250, 'englishButton', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
 		englishButton.anchor.setTo(0.5, 0.5);
 		WordFury._language = "spanish";
