@@ -80,10 +80,7 @@ WordFury.Game.prototype = {
        // muteButton.anchor.setTo(0.5, 0.5);
 
         // load the wordList
-        if (WordFury._language == "swahili") {
-        		WordFury._wordList = this.cache.getJSON('swahiliWords');
-        }
-        else if (WordFury._language == "spanish") {
+        if (WordFury._language == "spanish") {
         		WordFury._wordList = this.cache.getJSON('spanishWords');
         }
         else {
