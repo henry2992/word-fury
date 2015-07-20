@@ -17,7 +17,7 @@
 WordFury.Preloader = function(game){
 	WordFury.GAME_WIDTH = 640;
 	WordFury.GAME_HEIGHT = 960;
-	WordFury._language;
+	WordFury._language="english";
 };
 WordFury.Preloader.prototype = {
 	preload: function(){
@@ -32,19 +32,20 @@ WordFury.Preloader.prototype = {
 	    ///this.load.setPreloadSprite(this.preloadBar);
 
 		//icon buttons for language selection
-			var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 350, 'englishButton', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
-				 englishButton.anchor.setTo(0.5, 0.5);
+		this.add.text(WordFury.GAME_WIDTH/2-100, 150, "Select a language:", WordFury._fontStyle);
+		var englishButton = this.add.button(WordFury.GAME_WIDTH/2-200, 250, 'englishButtonSelected', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		englishButton.anchor.setTo(0.5, 0.5);
 			//var swahiliButton= this.add.button(WordFury.GAME_WIDTH/2, 350, 'swahiliButton', this.swahili, this, 'buttonOver', 'buttonOut', 'buttonOver');
 				 //swahiliButton.anchor.setTo(0.5, 0.5);		
-			var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 350, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
-				 spanishButton.anchor.setTo(0.5, 0.5);	
+		var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 250, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		spanishButton.anchor.setTo(0.5, 0.5);	
 			    
 	    //instructions for the game
-	    this.add.text(this.world.leftX, 450, "Welcome to WordFury!", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 500, "This is a fast paced typing game.", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 550, "Words fall from the top of the screen.", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 600, "Score points by successfully typing the word", WordFury._fontStyle);
-		this.add.text(this.world.leftX, 650, "Lose points when words reach the bottom.", WordFury._fontStyle); 
+	    this.add.text(this.world.leftX, 350, "Welcome to WordFury!", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 400, "This is a fast paced typing game.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 450, "Words fall from the top of the screen.", WordFury._fontStyle);  
+        this.add.text(this.world.leftX, 500, "Score points by successfully typing the word.", WordFury._fontStyle);
+		this.add.text(this.world.leftX, 550, "Lose points when words reach the bottom.", WordFury._fontStyle); 
 	    
 		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
@@ -71,8 +72,12 @@ WordFury.Preloader.prototype = {
 		// load mute button
 		this.load.image('muteButton','images/muteButton.png');
 		this.load.image('easyButton','images/easyButton.png')
-		this.load.image('mediumButton','images/mediumButton.png')
-		this.load.image('hardButton','images/hardButton.png')
+		this.load.image('mediumButton','images/mediumButton.png');
+		this.load.image('hardButton','images/hardButton.png');
+		this.load.image('easyButtonSelected','images/easyButtonSelected.png')
+		this.load.image('mediumButtonSelected','images/mediumButtonSelected.png');
+		this.load.image('hardButtonSelected','images/hardButtonSelected.png');
+
 		// load fonts
 		this.load.bitmapFont('stack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 		// load json files
@@ -88,7 +93,7 @@ WordFury.Preloader.prototype = {
 	// wait on this screen until the music is ready to go
 		if (this.cache.isSoundDecoded('titleMusic')) 
 		{
-			this.add.text(this.world.leftX, 750, "Click Main Menu to Continue", WordFury._fontStyle);
+			this.add.text(WordFury.GAME_WIDTH-450, 750, "Click button to continue:", WordFury._fontStyle);
 			var startButton= this.add.button(WordFury.GAME_WIDTH-60, 750, 'startButton', this.advance, this, 'buttonOver', 'buttonOut', 'buttonOver');
 			startButton.anchor.setTo(0.5, 0.5);
 			this.preloadText.destroy();
@@ -102,12 +107,21 @@ WordFury.Preloader.prototype = {
 	},
 	//functions to assign language name to the Wordfury._language
 	english: function () {	
+		var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 250, 'spanishButton', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		spanishButton.anchor.setTo(0.5, 0.5);
+		var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 250, 'englishButtonSelected', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		englishButton.anchor.setTo(0.5, 0.5);
 		WordFury._language = "english";
+
 	},
 /*	swahili: function () {
 		WordFury._language = "swahili";
 	},*/
 	spanish: function () {
+		var spanishButton= this.add.button(WordFury.GAME_WIDTH/2+200, 250, 'spanishButtonSelected', this.spanish, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		spanishButton.anchor.setTo(0.5, 0.5);
+		var englishButton= this.add.button(WordFury.GAME_WIDTH/2-200, 250, 'englishButton', this.english, this, 'buttonOver', 'buttonOut', 'buttonOver');
+		englishButton.anchor.setTo(0.5, 0.5);
 		WordFury._language = "spanish";
 	}
 	
