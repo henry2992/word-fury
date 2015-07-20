@@ -95,7 +95,7 @@ WordFury.Preloader.prototype = {
 
 		}
 		// transition to the MainMenu state
-		//this.state.start('MainMenu');
+		// this.state.start('MainMenu');
 	},
 	advance: function(){
 		this.state.start('MainMenu');
