@@ -40,11 +40,9 @@ WordFury.Game.prototype = {
         // set background
         var background;
         if (WordFury._background==1){
-
             background= this.add.sprite(0, 0, 'preloaderBackground');     
             background = this.add.tileSprite(0, 0, 640, 960, 'preloaderBackground');
             background.autoScroll(-200, 0);
-
 
         } else if (WordFury._background==2){ 
             background= this.add.sprite(0,0,'wildwestBackground');
@@ -83,7 +81,7 @@ WordFury.Game.prototype = {
         if (WordFury._language == "spanish") {
         		WordFury._wordList = this.cache.getJSON('spanishWords');
         }
-        else if {
+        else {
         		WordFury._wordList = this.cache.getJSON('englishWords');
         }
         	
