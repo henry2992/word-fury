@@ -44,9 +44,11 @@ WordFury.Preloader.prototype = {
 	    this.add.text(this.world.leftX, 350, "Welcome to WordFury!", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 400, "This is a fast paced typing game.", WordFury._fontStyle);  
         this.add.text(this.world.leftX, 450, "Words fall from the top of the screen.", WordFury._fontStyle);  
-        this.add.text(this.world.leftX, 500, "Score points by successfully typing the word.", WordFury._fontStyle);
-		this.add.text(this.world.leftX, 550, "Lose points when words reach the bottom.", WordFury._fontStyle); 
-	    
+        this.add.text(this.world.leftX, 500, "Score 10 points by successfully typing the word.", WordFury._fontStyle);
+		this.add.text(this.world.leftX, 550, "Lose 5 points if you type a word incorrectly. ", WordFury._fontStyle); 
+		this.add.text(this.world.leftX, 600, "Lose 10 points if a word reaches the bottom. ", WordFury._fontStyle);
+	    this.add.text(this.world.leftX, 650, "Keep the score above 0 the whole time to win! ", WordFury._fontStyle);
+
 		// load audio
 		this.load.audio('titleMusic', ['sounds/Revving_Eight_Bit_Engines.ogg', 'sounds/Revving_Eight_Bit_Engines.mp3']);
 		this.load.audio('countryMusic',['sounds/countrymusic.ogg','sounds/countrymusic.mp3']);
@@ -93,8 +95,8 @@ WordFury.Preloader.prototype = {
 	// wait on this screen until the music is ready to go
 		if (this.cache.isSoundDecoded('titleMusic')) 
 		{
-			this.add.text(WordFury.GAME_WIDTH-450, 750, "Click button to continue:", WordFury._fontStyle);
-			var startButton= this.add.button(WordFury.GAME_WIDTH-60, 750, 'startButton', this.advance, this, 'buttonOver', 'buttonOut', 'buttonOver');
+			this.add.text(WordFury.GAME_WIDTH-450, 770, "Click button to continue:", WordFury._fontStyle);
+			var startButton= this.add.button(WordFury.GAME_WIDTH-60, 770, 'startButton', this.advance, this, 'buttonOver', 'buttonOut', 'buttonOver');
 			startButton.anchor.setTo(0.5, 0.5);
 			this.preloadText.destroy();
 
