@@ -33,10 +33,10 @@ WordFury.Game.prototype = {
         // start the physics engine
         this.physics.startSystem(Phaser.Physics.ARCADE);
         //this.physics.arcade.gravity.y = 1;
-        WordFury.MUSIC.play('', 0, 1, true);
-
-        WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
-        
+        if (WordFury.MUSIC.mute==false){
+            WordFury.MUSIC.play('', 0, 1, true);
+            WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
+        }
         // set background
         var background;
         if (WordFury._background==1){
