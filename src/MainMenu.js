@@ -19,6 +19,7 @@ WordFury.MainMenu = function(game){
 	WordFury.Gunshot = null;
 	WordFury._background;
 	WordFury._level = 1;
+	WordFury._mute="no"; //holds a mute status. At first the game is not in mute (value "no")
 };
 
 WordFury.MainMenu.prototype = {
