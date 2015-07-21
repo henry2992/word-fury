@@ -33,10 +33,18 @@ WordFury.Game.prototype = {
         // start the physics engine
         this.physics.startSystem(Phaser.Physics.ARCADE);
         //this.physics.arcade.gravity.y = 1;
-        if (WordFury.MUSIC.mute==false){
+        
+        //maintains the music mute state as it was before on the main menu
+        if (WordFury._mute == "no"){
             WordFury.MUSIC.play('', 0, 1, true);
             WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
         }
+        else {
+        		WordFury.MUSIC.play('', 0, 1, true);
+            WordFury.MUSIC.onLoop.add(this.playLevelMusic, this);
+            WordFury.MUSIC.mute = true;
+        }
+        
         // set background
         var background;
         if (WordFury._background==1){
