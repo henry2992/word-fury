@@ -1,8 +1,21 @@
 # word-fury
 Word Fury - Open Source Game
 
+Release Information
 
-Release Information (Current release - version 1.0):
+**Pending New Release - Version 2.0**
+
+Date 07.24.15
+
+New functionality for V2.0 includes:
+
+New themes with new backgrounds and sounds
+New scoring pattern
+Words can be in English, Swahili, or Spanish
+Ability to mute music
+Choice of difficulty level
+
+**Current release - version 1.0**
 
 Date 04.08.15
 
