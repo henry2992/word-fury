@@ -82,8 +82,9 @@ WordFury.Game.prototype = {
             background = this.add.tileSprite(0, 0, 640, 960, 'oceanBackground');
         }
 
-       // var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 890, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
-       // muteButton.anchor.setTo(0.5, 0.5);
+       //mute button
+        var muteButton = this.add.button(WordFury.GAME_WIDTH-60, 50, 'muteButton', this.muteMusic, this, 'buttonOver', 'buttonOut', 'buttonOver');
+        muteButton.anchor.setTo(0.5, 0.5);
 
         // load the wordList
         if (WordFury._language == "spanish") {
