@@ -14,6 +14,7 @@ New functionality for V2.0 includes:
 - Words can be in English, Swahili, or Spanish
 - Ability to mute music
 - Choice of difficulty level
+- New Loading screen to transition to main menu
 
 **Current release - version 1.0**
 
