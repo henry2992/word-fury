@@ -9,11 +9,11 @@ Date 07.24.15
 
 New functionality for V2.0 includes:
 
-New themes with new backgrounds and sounds
-New scoring pattern
-Words can be in English, Swahili, or Spanish
-Ability to mute music
-Choice of difficulty level
+- New themes with new backgrounds and sounds
+- New scoring pattern
+- Words can be in English, Swahili, or Spanish
+- Ability to mute music
+- Choice of difficulty level
 
 **Current release - version 1.0**
 
