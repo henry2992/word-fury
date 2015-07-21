@@ -1,7 +1,7 @@
 # word-fury
 Word Fury - Open Source Game
 
-Release Information
+##Release Information
 
 **Pending New Release - Version 2.0**
 
