@@ -159,10 +159,12 @@ WordFury.MainMenu.prototype = {
 		// if the music is muted, unmute it
 		if(WordFury.MUSIC.mute){
 			WordFury.MUSIC.mute = false;
+			WordFury._mute="no";
 		}
 		// if the music isn't muted, mute it
 		else {
 			WordFury.MUSIC.mute = true;
+			WordFury._mute="yes";
 		}
 	}
 };
